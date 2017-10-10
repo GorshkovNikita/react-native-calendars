@@ -9,10 +9,13 @@ export default function styleConstructor(theme={}) {
         base: {
             width: 46,
             height: 46,
-            alignItems: 'center'
+            alignItems: 'center',
+            borderWidth: 1,
+            borderRadius: 23,
+            borderColor: 'transparent'
         },
         text: {
-            marginTop: 9,
+            marginTop: 7,
             fontSize: appStyle.textDayFontSize,
             fontFamily: appStyle.textDayFontFamily,
             fontWeight: '300',
@@ -20,7 +23,7 @@ export default function styleConstructor(theme={}) {
             backgroundColor: 'rgba(255, 255, 255, 0)'
         },
         alignedText: {
-            marginTop: Platform.OS === 'android' ? 9 : 9
+            marginTop: Platform.OS === 'android' ? 7 : 9
         },
         selected: {
             backgroundColor: appStyle.selectedDayBackgroundColor,
