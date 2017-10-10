@@ -23,6 +23,7 @@ class Day extends Component {
     day: PropTypes.object,
 
     markingExists: PropTypes.bool,
+    renderDay: PropTypes.func
   };
 
   constructor(props) {
@@ -31,6 +32,7 @@ class Day extends Component {
     this.style = styleConstructor(props.theme);
     this.markingStyle = this.getDrawingStyle(props.marked);
     this.onDayPress = this.onDayPress.bind(this);
+    this.renderDay = this.renderDay.bind(this);
   }
 
   onDayPress() {
@@ -103,6 +105,14 @@ class Day extends Component {
       return prev;
     }, {});
   }
+
+    renderDay(textStyle) {
+      if (this.props.renderDay)
+        return this.props.renderDay(textStyle, this.props.day);
+      return (
+        <Text style={textStyle}>{String(this.props.children)}</Text>
+      );
+    }
 
   render() {
     const containerStyle = [this.style.base];
@@ -187,7 +197,7 @@ class Day extends Component {
         <View style={this.style.wrapper}>
           {fillers}
           <View style={containerStyle}>
-            <Text style={textStyle}>{String(this.props.children)}</Text>
+              { this.renderDay(textStyle) }
           </View>
         </View>
       </TouchableWithoutFeedback>
