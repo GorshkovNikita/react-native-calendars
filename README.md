@@ -142,7 +142,7 @@ Interval marking
      '2012-05-23': [{endingDay: true, color: 'green', textColor: 'gray'}],
      '2012-05-04': [{startingDay: true, color: 'green'}, {endingDay: true, color: 'green'}]
     }}
-  // Date marking style [simple/interactive]. Default = 'simple'
+  // Date marking style [simple/interactive/dots]. Default = 'simple'
   markingType={'interactive'}
 />
 ```

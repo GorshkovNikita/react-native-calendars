@@ -20,7 +20,7 @@ LocaleConfig.defaultLocale = 'fr';
 
 Navigation.startSingleScreenApp({
   screen: {
-    screen: 'Menu',
+    screen: 'Calendars',
     title: 'WixCal',
   },
   appStyle: {

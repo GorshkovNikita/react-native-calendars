@@ -11,6 +11,7 @@ import {xdateToData, parseDate} from '../interface';
 import styleConstructor from './style';
 import Day from './day/basic';
 import UnitDay from './day/interactive';
+import DotsDay from './day/dots';
 import CalendarHeader from './header';
 import shouldComponentUpdate from './updater';
 
@@ -41,7 +42,7 @@ class Calendar extends Component {
     // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
     firstDay: PropTypes.number,
 
-    // Date marking style [simple/interactive]. Default = 'simple'
+    // Date marking style [simple/interactive/dots]. Default = 'simple'
     markingType: PropTypes.string,
 
     // Hide month navigation arrows. Default = false
@@ -162,13 +163,25 @@ class Calendar extends Component {
     }
     let dayComp;
     if (!dateutils.sameMonth(day, this.state.currentMonth) && this.props.hideExtraDays) {
-      if (this.props.markingType === 'interactive') {
+      if (this.props.markingType === 'interactive' || this.props.markingType === 'dots') {
         dayComp = (<View key={id} style={{flex: 1}}/>);
       } else {
         dayComp = (<View key={id} style={{width: 32}}/>);
       }
     } else {
-      const DayComp = this.props.markingType === 'interactive' ? UnitDay : Day;
+      // const DayComp = this.props.markingType === 'interactive' ? UnitDay : Day;
+      let DayComp;
+      switch (this.props.markingType) {
+          case 'interactive':
+            DayComp = UnitDay;
+            break;
+          case 'dots':
+            DayComp = DotsDay;
+            break;
+          default:
+            DayComp = Day;
+            break;
+      }
       const markingExists = this.props.markedDates ? true : false;
       dayComp = (
         <DayComp
