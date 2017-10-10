@@ -179,6 +179,7 @@ class Calendar extends Component {
             day={day}
             marked={this.getDateMarking(day)}
             markingExists={markingExists}
+            renderDay={this.props.renderDay}
           >
             {day.getDate()}
           </DayComp>
@@ -235,7 +236,6 @@ class Calendar extends Component {
           renderArrow={this.props.renderArrow}
           monthFormat={this.props.monthFormat}
           hideDayNames={this.props.hideDayNames}
-          renderDay={this.props.renderDay}
         />
         {weeks}
       </View>);
