@@ -27,14 +27,11 @@ export default class CalendarsScreen extends Component {
 
         <Calendar
           style={styles.calendar}
-          current={'2012-05-16'}
-          minDate={'2012-05-10'}
-          maxDate={'2012-05-29'}
           firstDay={1}
           markedDates={{
-            '2012-05-24': {selected: true, markers: ['blue']},
-            '2012-05-25': {markers: ['red', 'green', 'blue'], selected: true},
-            '2012-05-26': {disabled: true}
+            '2017-10-10': {selected: true, markers: ['blue']},
+            '2017-10-25': {markers: ['red', 'green', 'blue'], selected: true},
+            '2017-10-26': {disabled: true}
           }}
           hideArrows={true}
           theme={{
