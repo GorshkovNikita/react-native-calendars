@@ -22,7 +22,6 @@ export default class CalendarsScreen extends Component {
           style={styles.calendar}
           hideExtraDays
           markedDates={{[this.state.selected]: {selected: true}}}
-          renderDay={(textStyle, xDate) => (<Text style={textStyle}>{String(xDate.getDate())}</Text>)}
         />
         <Text style={styles.text}>Calendar with marked dates and hidden arrows</Text>
         <Calendar
@@ -45,6 +44,9 @@ export default class CalendarsScreen extends Component {
           minDate={'2012-05-10'}
           displayLoadingIndicator
           markingType={'interactive'}
+          renderDay={(textStyle, xDate) => (
+              <Text style={textStyle}>hey</Text>
+          )}
           theme={{
             calendarBackground: '#333248',
             textSectionTitleColor: 'white',
