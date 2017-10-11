@@ -31,7 +31,6 @@ function fromTo(a, b) {
 }
 
 function month(xd) {
-  console.log('month =' + xd);
   var year = xd.getFullYear(), month = xd.getMonth();
   var days = new Date(year, month + 1, 0).getDate();
 
