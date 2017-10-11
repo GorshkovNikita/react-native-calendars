@@ -61,12 +61,12 @@ class Day extends Component {
             textStyle.push(this.style.alignedText);
         }
 
-        if (this.props.state === 'selected' || marked.selected) {
+        if (this.props.state === 'disabled' || marked.disabled)
+            textStyle.push(this.style.disabledText);
+        else if (this.props.state === 'selected' || marked.selected) {
             containerStyle.push(this.style.selectedBorder);
             // dotStyle.push(this.style.selectedDot);
             textStyle.push(this.style.selectedText);
-        } else if (this.props.state === 'disabled' || marked.disabled) {
-            textStyle.push(this.style.disabledText);
         }
         if (this.props.state === 'today') {
             textStyle.push(this.style.todayText);
