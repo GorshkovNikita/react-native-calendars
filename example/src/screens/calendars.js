@@ -26,6 +26,7 @@ export default class CalendarsScreen extends Component {
         <Text style={styles.text}>Calendar with marked dates and hidden arrows</Text>
 
         <Calendar
+            current={'1993-02-01'}
           style={styles.calendar}
           firstDay={1}
           markedDates={{
@@ -33,7 +34,7 @@ export default class CalendarsScreen extends Component {
             '2017-10-25': {markers: ['red', 'green', 'blue'], selected: true},
             '2017-10-26': {disabled: true}
           }}
-          hideArrows={true}
+          hideArrows={false}
           theme={{
               selectedDayTextColor: '#2d4150',
               selectedDayBorderColor: '#00adf5'
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     borderBottomWidth: 1,
     borderColor: '#eee',
-    height: 400
+    height: 450
   },
   text: {
     textAlign: 'center',
