@@ -222,7 +222,7 @@ class Calendar extends Component {
   }
 
   render() {
-    //console.log('render calendar ');
+    // console.log('render calendar = ' + this.state.currentMonth);
     const days = dateutils.page(this.state.currentMonth, this.props.firstDay);
     const weeks = [];
     while (days.length) {

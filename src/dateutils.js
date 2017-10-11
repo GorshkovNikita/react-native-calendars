@@ -31,6 +31,7 @@ function fromTo(a, b) {
 }
 
 function month(xd) {
+  console.log('month =' + xd);
   var year = xd.getFullYear(), month = xd.getMonth();
   var days = new Date(year, month + 1, 0).getDate();
 
@@ -76,7 +77,13 @@ function page(xd, firstDayOfWeek) {
     after = fromTo(days[days.length - 1], to);
   }
 
-  return before.concat(days.slice(1, days.length - 1), after);
+  var allDays = before.concat(days.slice(1, days.length - 1), after);
+  while (allDays.length !== 42) {
+    var first = allDays[allDays.length - 1].clone().addDays(1);
+    allDays.push(first);
+  }
+
+  return allDays;
 }
 
 module.exports = {
