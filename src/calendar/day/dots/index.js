@@ -25,6 +25,7 @@ class Day extends Component {
         super(props);
         this.style = styleConstructor(props.theme);
         this.onDayPress = this.onDayPress.bind(this);
+        this.maxNumberOfDots = 3;
     }
 
     onDayPress() {
@@ -46,15 +47,10 @@ class Day extends Component {
         const dotStyle = [this.style.dot];
 
         let marked = this.props.marked || {};
-        // if (marked && marked.constructor === Array && marked.length) {
-        //     marked = {
-        //         marked: true
-        //     };
-        // }
         let dots = [];
         if (marked.markers && marked.markers.constructor === Array && marked.markers.length) {
             dotStyle.push(this.style.visibleDot);
-            for (let i = 0; i < marked.markers.length; i++)
+            for (let i = 0; i < this.maxNumberOfDots; i++)
                 dots.push(<View key={i} style={[dotStyle, {backgroundColor: marked.markers[i]}]}/>);
         }
         else if (!this.props.markingExists) {
