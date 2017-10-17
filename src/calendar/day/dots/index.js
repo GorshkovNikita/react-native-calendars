@@ -50,7 +50,9 @@ class Day extends Component {
         let dots = [];
         if (marked.markers && marked.markers.constructor === Array && marked.markers.length) {
             dotStyle.push(this.style.visibleDot);
-            for (let i = 0; i < this.maxNumberOfDots; i++)
+            const numberOfDots = marked.markers.length <= this.maxNumberOfDots ?
+                marked.markers.length : this.maxNumberOfDots;
+            for (let i = 0; i < numberOfDots; i++)
                 dots.push(<View key={i} style={[dotStyle, {backgroundColor: marked.markers[i]}]}/>);
         }
         else if (!this.props.markingExists) {
